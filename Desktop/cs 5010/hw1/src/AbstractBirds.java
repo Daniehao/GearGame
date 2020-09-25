@@ -1,79 +1,162 @@
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class AbstractBirds implements Birds{
-    String birdType;
-    String characteristic;
-    Boolean hasExtinct;
-    int wings;
-    String favoriteWord;
-    int totalWords;
-    List<String> preferredFood;
+/**
+ * AbstractBirds includes all of the abstract methods and non-abstract methods that included in the
+ * Birds interface.
+ */
+abstract class AbstractBirds implements Birds {
+  String birdType;
+  String characteristic;
+  Boolean hasExtinct;
+  int wings;
+  String favoriteWord;
+  int totalWords;
+  List<String> preferredFood;
+  boolean closeToWater;
 
-    boolean closeToWater;
+  /**
+   * Set preferred food list.
+   */
+  public void setPreferredFood() {
+    preferredFood = new ArrayList<>();
+  }
 
-    public void setPreferredFood() {
-      preferredFood = new ArrayList<>();
-    }
-    public String getType() {
-      return birdType;
-    }
+  /**
+   * Get the type.
+   *
+   * @return The type of the bird.
+   */
+  public String getType() {
+    return birdType;
+  }
 
-    public String getCharacteristic() {
-      return characteristic;
-    }
+  /**
+   * Get the characteristic.
+   *
+   * @return The characteristic of the bird.
+   */
+  public String getCharacteristic() {
+    return characteristic;
+  }
 
-    public boolean getIsExtinct() {
-      return hasExtinct;
-    }
+  /**
+   * Get the extinct status.
+   *
+   * @return Whether the bird extinct or not.
+   */
+  public boolean getIsExtinct() {
+    return hasExtinct;
+  }
 
-    public int getWings() {
-      return wings;
-    }
+  /**
+   * Get the number of wings.
+   *
+   * @return The wings' number of the bird.
+   */
+  public int getWings() {
+    return wings;
+  }
 
-    public List<String> getPreferredFood(){
-      return preferredFood;
-    }
+  /**
+   * Get the preferred food list.
+   *
+   * @return The list of preferred food for the bird.
+   */
+  public List<String> getPreferredFood() {
+    return preferredFood;
+  }
 
-    public void setType(String type) {
-      birdType = type;
-    }
+  /**
+   * Set the bird type.
+   *
+   * @param type The type of the bird.
+   */
+  public void setType(String type) {
+    birdType = type;
+  }
 
-    public abstract void setCharacteristic();
+  /**
+   * abstract method of set characteristic of bird.
+   */
+  public abstract void setCharacteristic();
 
-    public void setExtinct(boolean hasExtinct) {
-      this.hasExtinct = hasExtinct;
-    }
+  /**
+   * Set the extinct status of the bird.
+   *
+   * @param hasExtinct The extinct status of the bird.
+   */
+  public void setExtinct(boolean hasExtinct) {
+    this.hasExtinct = hasExtinct;
+  }
 
-    public void setWings(int wings) {
-      this.wings = wings;
-    }
+  /**
+   * Set the wings' number.
+   *
+   * @param wings The bird's wings' number.
+   */
+  public void setWings(int wings) {
+    this.wings = wings;
+  }
 
-    public void addPreferredFood(String food){
-      preferredFood.add(food);
-    }
+  /**
+   * Set the preferred food list by add preferred food.
+   *
+   * @param food The preferred food.
+   */
+  public void addPreferredFood(String food) {
+    preferredFood.add(food);
+  }
 
-    public void setCloseToWater(boolean closeToWater){
-      this.closeToWater = closeToWater;
-    }
+  /**
+   * Set the bird is living close to water or not.
+   *
+   * @param closeToWater The bird is living close to water or not.
+   */
+  public void setCloseToWater(boolean closeToWater) {
+    this.closeToWater = closeToWater;
+  }
 
-    public boolean getCloseToWater(){
-      return closeToWater;
-    }
+  /**
+   * Get the bird's water living status.
+   *
+   * @return Whether the bird lives close to water.
+   */
+  public boolean getCloseToWater() {
+    return closeToWater;
+  }
 
-    public void setTotalNumWords(int totalNumWords){
-      this.totalWords = totalNumWords;
-    }
+  /**
+   * Set the total number of words the bird can speak.
+   *
+   * @param totalNumWords The total number of words the bird could speak.
+   */
+  public void setTotalNumWords(int totalNumWords) {
+    this.totalWords = totalNumWords;
+  }
 
-    public void setFavoriteWord(String word){
-      this.favoriteWord = word;
-    }
+  /**
+   * Set the favorite word of the bird.
+   * @param word The favorite word of the bird.
+   */
+  public void setFavoriteWord(String word) {
+    this.favoriteWord = word;
+  }
 
-    public int getTotalNumWords(){
-      return totalWords;
-    }
+  /**
+   * Get the total number of words the bird can speak.
+   * @return totalWords The total number of words the bird can speak.
+   */
+  public int getTotalNumWords() {
+    return totalWords;
+  }
 
-    public String getFavoriteWord(){
-      return favoriteWord;
-    }
+  /**
+   * Get the favorite word of the bird.
+   *
+   * @return The favorite word of the bird.
+   */
+  public String getFavoriteWord() {
+    return favoriteWord;
+  }
 }
