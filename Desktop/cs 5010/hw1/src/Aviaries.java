@@ -4,7 +4,7 @@ import java.util.List;
 public class Aviaries {
   private String aviaryName;
   private int currNum;
-  private List<Birds> birdsList;
+  private List<String> birdsList;
   private List<String> text;
 
   public Aviaries(Birds bird) {
@@ -18,7 +18,7 @@ public class Aviaries {
   }
 
   public void addBird(Birds bird) {
-    birdsList.add(bird);
+    birdsList.add(bird.toString());
     currNum += 1;
     text.add(bird.getCharacteristic());
   }
@@ -36,7 +36,7 @@ public class Aviaries {
     return currNum;
   }
 
-  public List<Birds> getBirdsList() {
+  public List<String> getBirdsList() {
     return birdsList;
   }
 

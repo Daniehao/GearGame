@@ -42,7 +42,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ConservatoryTest">
+  <component name="RunManager" selected="JUnit.ConservatoryTest.addRescueTest">
     <configuration name="ConservatoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw1" />
       <option name="PACKAGE_NAME" value="" />
@@ -94,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ConservatoryTest" />
         <item itemvalue="JUnit.ConservatoryTest.addRescueTest" />
+        <item itemvalue="JUnit.ConservatoryTest" />
         <item itemvalue="JUnit.ConservatoryTest.getTypeMapTest" />
         <item itemvalue="JUnit.ConservatoryTest.addRescueInvalidTest2" />
         <item itemvalue="JUnit.ConservatoryTest.addRescueInvalidTest" />
@@ -113,7 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600743771940</updated>
       <workItem from="1600743774564" duration="23111000" />
-      <workItem from="1600977579529" duration="37734000" />
+      <workItem from="1600977579529" duration="40787000" />
     </task>
     <servers />
   </component>

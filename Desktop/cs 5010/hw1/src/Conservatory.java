@@ -111,12 +111,15 @@ public class Conservatory {
     return aviary.getText();
   }
 
-  public Map<Integer, List<Birds>> getAviariesLocationBirds() {
-    Map<Integer, List<Birds>> aviaryLocation = new HashMap<>();
+  public String getAviariesLocationBirds() {
+    Map<Integer, List<String>> aviaryLocation = new HashMap<>();
+    String aviaryLocationStr = "";
     for (int i = 0; i < aviariesList.size(); i++) {
       aviaryLocation.put(i, aviariesList.get(i).getBirdsList());
+      aviaryLocationStr = aviaryLocationStr + "For aviary index " + i + ", the birds are "
+              + aviariesList.get(i).getBirdsList().toString() +". ";
     }
-    return aviaryLocation;
+    return aviaryLocationStr;
   }
 
   public List<Aviaries> getAviariesList() {
