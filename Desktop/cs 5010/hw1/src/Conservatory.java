@@ -48,13 +48,15 @@ public class Conservatory {
    */
   public void addBirdInAviaries(Birds bird) {
     String birdClass = bird.getClass().toString().substring(6);
-    if (!birdClass.equals("FlightlessBirds") && !birdClass.equals("PreyBirds") && !birdClass.equals("WaterFowl")) {
+    if (!birdClass.equals("FlightlessBirds") && !birdClass.equals("PreyBirds")
+            && !birdClass.equals("WaterFowl")) {
       birdClass = "Other";
     }
     boolean aviaryExist = false;
     for (int i = 0; i < aviariesList.size(); i++) {
       //Use current aviary
-      if (aviariesList.get(i).getAviaryName() == birdClass && aviariesList.get(i).getCurrNum() < 5) {
+      if (aviariesList.get(i).getAviaryName() == birdClass
+              && aviariesList.get(i).getCurrNum() < 5) {
         aviaryExist = !aviaryExist;
         addIntoLists(bird, i);
       }

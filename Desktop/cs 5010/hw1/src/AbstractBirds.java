@@ -137,6 +137,7 @@ abstract class AbstractBirds implements Birds {
 
   /**
    * Set the favorite word of the bird.
+   *
    * @param word The favorite word of the bird.
    */
   public void setFavoriteWord(String word) {
@@ -145,6 +146,7 @@ abstract class AbstractBirds implements Birds {
 
   /**
    * Get the total number of words the bird can speak.
+   *
    * @return totalWords The total number of words the bird can speak.
    */
   public int getTotalNumWords() {

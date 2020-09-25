@@ -1,7 +1,7 @@
 /**
  * Class for ShoreBirds.
  */
-public class ShoreBirds extends AbstractBirds{
+public class ShoreBirds extends AbstractBirds {
   /**
    * Constructor for ShoreBirds.
    */

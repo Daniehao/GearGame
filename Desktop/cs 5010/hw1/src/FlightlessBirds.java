@@ -1,7 +1,7 @@
 /**
  * Class for Flightless Birds.
  */
-public class FlightlessBirds extends AbstractBirds{
+public class FlightlessBirds extends AbstractBirds {
   /**
    * Constructor for FlightlessBirds.
    */

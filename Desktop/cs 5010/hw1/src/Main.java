@@ -2,15 +2,13 @@
  * A demo to test all methods in Conservatory and Aviaries classes.
  */
 public class Main {
-  public static void main(String[] args){
-     Birds parrotBird1;
-     Birds preyBird1;
-     Birds flightLessBird1;
-     Birds flightLessBird2;
-     Birds waterFowl1;
-     Birds owl1;
-
-    parrotBird1 = new Parrot();
+  /**
+   * Main method for Main class and it prints the result for the two demos.
+   *
+   * @param args The input args for main
+   */
+  public static void main(String[] args) {
+    Birds parrotBird1 = new Parrot();
     parrotBird1.setType("gray parrot");
     parrotBird1.setExtinct(false);
     parrotBird1.setWings(2);
@@ -21,7 +19,7 @@ public class Main {
     parrotBird1.setCloseToWater(false);
     parrotBird1.setTotalNumWords(100);
 
-    preyBird1 = new PreyBirds();
+    Birds preyBird1 = new PreyBirds();
     preyBird1.setType("eagles");
     preyBird1.setExtinct(false);
     preyBird1.setWings(2);
@@ -30,7 +28,7 @@ public class Main {
     preyBird1.addPreferredFood("buds");
     preyBird1.setCloseToWater(false);
 
-    flightLessBird1 = new FlightlessBirds();
+    Birds flightLessBird1 = new FlightlessBirds();
     flightLessBird1.setType("kiwis");
     flightLessBird1.setExtinct(false);
     flightLessBird1.setWings(2);
@@ -39,16 +37,7 @@ public class Main {
     flightLessBird1.addPreferredFood("nuts");
     flightLessBird1.setCloseToWater(false);
 
-    flightLessBird2 = new FlightlessBirds();
-    flightLessBird2.setType("moas");
-    flightLessBird2.setExtinct(true);
-    flightLessBird2.setWings(2);
-    flightLessBird2.setPreferredFood();
-    flightLessBird2.addPreferredFood("insects");
-    flightLessBird2.addPreferredFood("nuts");
-    flightLessBird2.setCloseToWater(false);
-
-    waterFowl1 = new WaterFowl();
+    Birds waterFowl1 = new WaterFowl();
     waterFowl1.setType("ducks");
     waterFowl1.setExtinct(false);
     waterFowl1.setWings(2);
@@ -58,7 +47,7 @@ public class Main {
     waterFowl1.addPreferredFood("aquatic invertebrates");
     waterFowl1.setCloseToWater(true);
 
-    owl1 = new Owl();
+    Birds owl1 = new Owl();
     owl1.setType("blackowl");
     owl1.setExtinct(false);
     owl1.setWings(2);
@@ -96,5 +85,31 @@ public class Main {
     System.out.println();
     System.out.println("The birds included in each aviary: ");
     System.out.println(conservatory1.getAviariesLocationBirds());
+    System.out.println();
+    System.out.println();
+    System.out.println();
+
+    //DEMO 2
+    Conservatory conservatory2 = new Conservatory();
+    conservatory2.addRescue(owl1);
+    conservatory2.addRescue(flightLessBird1);
+    System.out.println("Food Map: ");
+    System.out.println(conservatory2.getFoodMap());
+    System.out.println();
+    System.out.println("The description of birds in aviary 0: ");
+    System.out.println(conservatory2.getBirdDescription(conservatory1.getAviariesList().get(0)));
+    System.out.println("The description of birds in aviary 1: ");
+    System.out.println(conservatory2.getBirdDescription(conservatory1.getAviariesList().get(1)));
+    System.out.println();
+    System.out.println("The aviary index of flightLessBird1: ");
+    System.out.println(conservatory2.getBirdAviary(flightLessBird1));
+    System.out.println("The aviary index of owl1: ");
+    System.out.println(conservatory2.getBirdAviary(owl1));
+    System.out.println();
+    System.out.println("The map of bird type and the aviary index list: ");
+    System.out.println(conservatory2.getTypeMap());
+    System.out.println();
+    System.out.println("The birds included in each aviary: ");
+    System.out.println(conservatory2.getAviariesLocationBirds());
   }
 }

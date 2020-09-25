@@ -1,7 +1,7 @@
 /**
  * Class for Owl.
  */
-public class Owl extends AbstractBirds{
+public class Owl extends AbstractBirds {
   /**
    * Constructor for Owl.
    */

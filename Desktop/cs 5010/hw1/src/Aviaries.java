@@ -13,6 +13,7 @@ public class Aviaries {
 
   /**
    * Constructor for Aviaries.
+   *
    * @param bird The bird object
    */
   public Aviaries(Birds bird) {
@@ -23,7 +24,8 @@ public class Aviaries {
 
   /**
    * Add a bird into the current Aviary.
-   * @param bird  The bird object.
+   *
+   * @param bird The bird object.
    */
   public void addBird(Birds bird) {
     birdsList.add(bird.toString());
@@ -33,12 +35,13 @@ public class Aviaries {
 
   /**
    * Set the name of aviary by FlightlessBirds, PreyBirds, WaterFowl, and Other.
+   *
    * @param bird The bird object.
    */
   public void setAviaryName(Birds bird) {
     String birdClassName = bird.getClass().toString().substring(6);
     if (!birdClassName.equals("FlightlessBirds") && !birdClassName.equals("PreyBirds")
-            && !birdClassName.equals("WaterFowl")){
+            && !birdClassName.equals("WaterFowl")) {
       birdClassName = "Other";
     }
     this.aviaryName = birdClassName;
@@ -46,6 +49,7 @@ public class Aviaries {
 
   /**
    * Get the number of birds in the current aviary.
+   *
    * @return The number of birds in the aviary.
    */
   public int getCurrNum() {
@@ -54,6 +58,7 @@ public class Aviaries {
 
   /**
    * Get the list of birds by their address.
+   *
    * @return The list of address of the birds.
    */
   public List<String> getBirdsList() {
@@ -62,6 +67,7 @@ public class Aviaries {
 
   /**
    * Get the name of the current aviary.
+   *
    * @return The name of aviary.
    */
   public String getAviaryName() {
@@ -70,11 +76,12 @@ public class Aviaries {
 
   /**
    * Get the combination of all the birds' description in the current aviary.
-   * @return  All birds' description in the current aviary.
+   *
+   * @return All birds' description in the current aviary.
    */
   public String getText() {
     String textOfAviary = "";
-    for (String eachText: text) {
+    for (String eachText : text) {
       textOfAviary = textOfAviary + eachText;
     }
     return textOfAviary;

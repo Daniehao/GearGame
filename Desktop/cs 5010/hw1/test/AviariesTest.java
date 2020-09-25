@@ -32,9 +32,11 @@ public class AviariesTest {
 
   @Test
   public void addBirdTest() {
-    aviary1.addBird(bird5);
     aviary1.addBird(bird1);
+    aviary1.addBird(bird5);
     assertEquals(2, aviary1.getCurrNum());
+    assertEquals("[" + bird1.toString() +", "+ bird5.toString() +"]",
+            aviary1.getBirdsList().toString());
   }
 
   @Test
@@ -47,14 +49,6 @@ public class AviariesTest {
     assertEquals("PreyBirds", aviary2.getAviaryName());
     assertEquals("WaterFowl", aviary3.getAviaryName());
     assertEquals("Other", aviary4.getAviaryName());
-  }
-
-  @Test
-  public void getBirdsListTest() {
-    aviary1.addBird(bird5);
-    aviary1.addBird(bird1);
-    assertEquals("[FlightlessBirds@32a1bec0, FlightlessBirds@22927a81]",
-            aviary1.getBirdsList().toString());
   }
 
   @Test

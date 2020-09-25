@@ -1,7 +1,7 @@
 /**
  * Class for WaterFowl.
  */
-public class WaterFowl extends AbstractBirds{
+public class WaterFowl extends AbstractBirds {
   /**
    * Constructor for WaterFowl.
    */

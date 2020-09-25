@@ -78,6 +78,26 @@ public class ConservatoryTest {
   }
 
   @Test
+  public void addRescueTest() {
+    c1.addRescue(parrotBird1);
+    c1.addRescue(owl1);
+    c1.addRescue(waterFowl1);
+    c1.addRescue(preyBird1);
+    c1.addRescue(flightLessBird1);
+    System.out.println(c1.getTypeMap());
+    System.out.println(c1.getBirdAviary(flightLessBird1));
+    System.out.println(c1.getFoodMap());
+    System.out.println(c1.getAviariesLocationBirds());
+    assertEquals("The blackowl are in: [0].The ducks are in: [1].The eagles are in: [2]."
+            + "The gray parrot are in: [0].The kiwis are in: [3].", c1.getTypeMap());
+    assertEquals("This bird is in Aviary: 3.", c1.getBirdAviary(flightLessBird1));
+    assertEquals("For aviary index 0, the birds are [" + parrotBird1.toString() + ", "+ owl1.toString() + "]. " +
+            "For aviary index 1, the birds are ["+waterFowl1.toString()+"]. For aviary index 2, the birds " +
+            "are [" + preyBird1.toString() + "]. For aviary index 3, the birds are" +
+            " [" + flightLessBird1.toString() + "]. ", c1.getAviariesLocationBirds());
+  }
+
+  @Test
   public void constructorTest() {
     Conservatory c2;
     try {
@@ -179,23 +199,4 @@ public class ConservatoryTest {
     c1.addRescue(flightLessBird2);
   }
 
-  @Test
-  public void addRescueTest() {
-    c1.addRescue(parrotBird1);
-    c1.addRescue(owl1);
-    c1.addRescue(waterFowl1);
-    c1.addRescue(preyBird1);
-    c1.addRescue(flightLessBird1);
-    System.out.println(c1.getTypeMap());
-    System.out.println(c1.getBirdAviary(flightLessBird1));
-    System.out.println(c1.getFoodMap());
-    System.out.println(c1.getAviariesLocationBirds());
-    assertEquals("The blackowl are in: [0].The ducks are in: [1].The eagles are in: [2]."
-            + "The gray parrot are in: [0].The kiwis are in: [3].", c1.getTypeMap());
-    assertEquals("This bird is in Aviary: 3.", c1.getBirdAviary(flightLessBird1));
-    assertEquals("For aviary index 0, the birds are [Parrot@32a1bec0, Owl@22927a81]. " +
-            "For aviary index 1, the birds are [WaterFowl@78e03bb5]. For aviary index 2, the birds "
-            + "are [PreyBirds@5e8c92f4]. For aviary index 3, the birds are " +
-            "[FlightlessBirds@61e4705b]. ", c1.getAviariesLocationBirds());
-  }
 }

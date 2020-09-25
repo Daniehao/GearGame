@@ -1,7 +1,7 @@
 /**
  * Class for PreyBirds.
  */
-public class PreyBirds extends AbstractBirds{
+public class PreyBirds extends AbstractBirds {
   /**
    * Constructor for Prey birds.
    */
