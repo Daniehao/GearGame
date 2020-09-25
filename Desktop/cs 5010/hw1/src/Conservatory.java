@@ -113,7 +113,7 @@ public class Conservatory {
   }
 
   /**
-   * Get what food needs to be kept and in what quantities.
+   * Get the food needs to be kept with quantities.
    *
    * @return The string of food with required quantity.
    */
@@ -126,7 +126,7 @@ public class Conservatory {
   }
 
   /**
-   * Produce an index that lists all birds in the conservatory in alphabetical order and their
+   * Produce a String that lists all birds in the conservatory in alphabetical order and their
    * location.
    *
    * @return The string that including the bird is living in which conservatory.
@@ -141,7 +141,7 @@ public class Conservatory {
   }
 
   /**
-   * Allow a guest to look up which aviary a bird is in.
+   * Get the aviary a bird is in.
    *
    * @param bird The bird object.
    * @return The string of bird with its location.
@@ -156,8 +156,7 @@ public class Conservatory {
   }
 
   /**
-   * Produce text for any given aviary that gives a description of the birds it houses and
-   * interesting information that it may have about the bird.
+   * Produce text for a given aviary and return with a description of the birds it houses.
    *
    * @param aviary The aviary object.
    * @return The combination string of the aviary's birds' description.
@@ -167,7 +166,7 @@ public class Conservatory {
   }
 
   /**
-   * Produce a “directory” that lists all the aviaries by location and the birds they house.
+   * Produce a string with all the aviaries by aviary index order and show the birds they house.
    *
    * @return String with aviary index and the birds list in the aviary.
    */
