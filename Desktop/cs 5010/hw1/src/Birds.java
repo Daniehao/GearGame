@@ -1,5 +1,8 @@
 import java.util.List;
 
+/**
+ * The interface for birds, including methods of getters, setters, and other method for birds.
+ */
 public interface Birds {
   public String getType();
 

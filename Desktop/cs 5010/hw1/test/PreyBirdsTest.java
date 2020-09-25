@@ -3,6 +3,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test for the PreyBirds class.
+ */
 public class PreyBirdsTest {
   private Birds preyBird1;
 

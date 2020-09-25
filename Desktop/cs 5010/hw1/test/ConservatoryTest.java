@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test for the Conservatory class.
+ */
 public class ConservatoryTest {
   private Conservatory c1;
   private Birds parrotBird1;

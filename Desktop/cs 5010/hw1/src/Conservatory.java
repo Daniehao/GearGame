@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Class for Conservatory, which includes a series of operations to rescue bird, find birds' food
+ * list, get birds' location, and get birds' type with their houses.
+ */
 public class Conservatory {
   List<Aviaries> aviariesList;
   Map<String, Integer> foodMap;
@@ -11,6 +15,9 @@ public class Conservatory {
   Map<Birds, Integer> birdsAviariesMap;
   Map<String, List<Integer>> typeMap;
 
+  /**
+   * Constructor for Conservatory class.
+   */
   public Conservatory() {
     aviariesList = new ArrayList<>();
     foodMap = new HashMap<>();
@@ -19,6 +26,11 @@ public class Conservatory {
     typeMap = new HashMap<>();
   }
 
+  /**
+   * Rescue a bird and put it check if it can be added into the current conservatory.
+   *
+   * @param bird The bird object.
+   */
   public void addRescue(Birds bird) {
     if (!bird.getIsExtinct() && aviariesList.size() < 20) {
       addBirdInAviaries(bird);
@@ -29,6 +41,11 @@ public class Conservatory {
     }
   }
 
+  /**
+   * Add the bird into the current conservatory.
+   *
+   * @param bird The bird object.
+   */
   public void addBirdInAviaries(Birds bird) {
     String birdClass = bird.getClass().toString().substring(6);
     if (!birdClass.equals("FlightlessBirds") && !birdClass.equals("PreyBirds") && !birdClass.equals("WaterFowl")) {
@@ -48,6 +65,11 @@ public class Conservatory {
     }
   }
 
+  /**
+   * Create a new empty aviary.
+   *
+   * @param bird The bird object.
+   */
   public void createAviary(Birds bird) {
     //temp
     Aviaries aviary = new Aviaries(bird);
@@ -56,6 +78,12 @@ public class Conservatory {
     aviariesIndex++;
   }
 
+  /**
+   * Add a bird into the aviaries list.
+   *
+   * @param bird The bird object.
+   * @param i    The index that it should be inserted intp.
+   */
   public void addIntoLists(Birds bird, int i) {
     aviariesList.get(i).addBird(bird);
     birdsAviariesMap.put(bird, i);
@@ -66,6 +94,11 @@ public class Conservatory {
     typeMap.get(bird.getType()).add(i);
   }
 
+  /**
+   * Add a bird into the current food map and update the food quantity.
+   *
+   * @param bird The bird object.
+   */
   public void addFoodMap(Birds bird) {
     List<String> foodList = bird.getPreferredFood();
     int n = foodList.size();
@@ -79,6 +112,11 @@ public class Conservatory {
     }
   }
 
+  /**
+   * Get what food needs to be kept and in what quantities.
+   *
+   * @return The string of food with required quantity.
+   */
   public String getFoodMap() {
     String foodStr = "";
     for (String food : foodMap.keySet()) {
@@ -87,6 +125,12 @@ public class Conservatory {
     return foodStr;
   }
 
+  /**
+   * Produce an index that lists all birds in the conservatory in alphabetical order and their
+   * location.
+   *
+   * @return The string that including the bird is living in which conservatory.
+   */
   public String getTypeMap() {
     Map<String, List<Integer>> treeMap = new TreeMap<>(typeMap);
     String rst = "";
@@ -96,6 +140,12 @@ public class Conservatory {
     return rst;
   }
 
+  /**
+   * Allow a guest to look up which aviary a bird is in.
+   *
+   * @param bird The bird object.
+   * @return The string of bird with its location.
+   */
   public String getBirdAviary(Birds bird) {
     for (Birds birdInMap : birdsAviariesMap.keySet()) {
       if (birdInMap.equals(bird)) {
@@ -105,10 +155,22 @@ public class Conservatory {
     return "This bird is not in current aviaries.";
   }
 
+  /**
+   * Produce text for any given aviary that gives a description of the birds it houses and
+   * interesting information that it may have about the bird.
+   *
+   * @param aviary The aviary object.
+   * @return The combination string of the aviary's birds' description.
+   */
   public String getBirdDescription(Aviaries aviary) {
     return aviary.getText();
   }
 
+  /**
+   * Produce a “directory” that lists all the aviaries by location and the birds they house.
+   *
+   * @return String with aviary index and the birds list in the aviary.
+   */
   public String getAviariesLocationBirds() {
     Map<Integer, List<String>> aviaryLocation = new HashMap<>();
     String aviaryLocationStr = "";
@@ -120,6 +182,11 @@ public class Conservatory {
     return aviaryLocationStr;
   }
 
+  /**
+   * Get the aviaries list.
+   *
+   * @return List of aviaries by the objects of aviaries.
+   */
   public List<Aviaries> getAviariesList() {
     return aviariesList;
   }

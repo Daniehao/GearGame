@@ -3,6 +3,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test for the Pigeons class.
+ */
 public class PigeonsTest {
   private Birds pigeon1;
 

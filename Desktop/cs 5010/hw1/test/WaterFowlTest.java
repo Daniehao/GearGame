@@ -6,6 +6,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test for the WaterFowl class.
+ */
 public class WaterFowlTest {
   private Birds waterfowl1;
 
