@@ -32,4 +32,6 @@ public interface Birds {
   public int getTotalNumWords();
 
   public String getFavoriteWord();
+
+  public void setPreferredFood();
 }

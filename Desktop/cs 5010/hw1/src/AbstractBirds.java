@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 abstract class AbstractBirds implements Birds{
@@ -7,10 +8,13 @@ abstract class AbstractBirds implements Birds{
     int wings;
     String favoriteWord;
     int totalWords;
+    List<String> preferredFood;
 
-  List<String> preferredFood;
     boolean closeToWater;
 
+    public void setPreferredFood() {
+      preferredFood = new ArrayList<>();
+    }
     public String getType() {
       return birdType;
     }

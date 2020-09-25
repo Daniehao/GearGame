@@ -17,4 +17,16 @@ public class ParrotTest {
     assertEquals(parrotBird1.getCharacteristic(), "Having a short, curved beak and are known "
             + "for their intelligence and ability" + "to mimic sounds.");
   }
+
+  @Test
+  public void getTotalNumWordsTest() {
+    parrotBird1.setTotalNumWords(100);
+    assertEquals(parrotBird1.getTotalNumWords(), 100);
+  }
+
+  @Test
+  public void getFavoriteWordTest() {
+    parrotBird1.setFavoriteWord("Hi");
+    assertEquals(parrotBird1.getFavoriteWord(), "Hi");
+  }
 }

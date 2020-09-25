@@ -42,7 +42,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FlightlessBirdsTest.setCharacteristicTest">
+  <component name="RunManager" selected="JUnit.ParrotTest">
     <configuration name="FlightlessBirdsTest.setCharacteristicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw1" />
       <option name="PACKAGE_NAME" value="" />
@@ -72,21 +72,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParrotTest.setCharacteristicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WaterFowlTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParrotTest" />
-      <option name="METHOD_NAME" value="setCharacteristicTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="WaterFowlTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PigeonsTest.setCharacteristicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WaterFowlTest.getPreferredFoodTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PigeonsTest" />
-      <option name="METHOD_NAME" value="setCharacteristicTest" />
+      <option name="MAIN_CLASS_NAME" value="WaterFowlTest" />
+      <option name="METHOD_NAME" value="getPreferredFoodTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -94,11 +93,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ParrotTest" />
+        <item itemvalue="JUnit.WaterFowlTest.getPreferredFoodTest" />
+        <item itemvalue="JUnit.WaterFowlTest" />
         <item itemvalue="JUnit.FlightlessBirdsTest.setCharacteristicTest" />
         <item itemvalue="JUnit.OwlTest.setCharacteristicTest" />
-        <item itemvalue="JUnit.ParrotTest.setCharacteristicTest" />
-        <item itemvalue="JUnit.ParrotTest" />
-        <item itemvalue="JUnit.PigeonsTest.setCharacteristicTest" />
       </list>
     </recent_temporary>
   </component>
@@ -113,7 +112,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600743771940</updated>
       <workItem from="1600743774564" duration="23111000" />
-      <workItem from="1600977579529" duration="20932000" />
+      <workItem from="1600977579529" duration="23599000" />
     </task>
     <servers />
   </component>
