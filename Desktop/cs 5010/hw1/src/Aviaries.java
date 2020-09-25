@@ -11,10 +11,10 @@ public class Aviaries {
     birdsList = new ArrayList<>();
     text = new ArrayList<>();
 
-    birdsList.add(bird);
+//    birdsList.add(bird);
     setAviaryName(bird);
-    currNum = 1;
-    text.add(bird.getCharacteristic());
+//    currNum = 1;
+//    text.add(bird.getCharacteristic());
   }
 
   public void addBird(Birds bird) {
@@ -24,9 +24,9 @@ public class Aviaries {
   }
 
   public void setAviaryName(Birds bird) {
-    String birdClassName = bird.getClass().toString();
-    if (birdClassName != "FlightlessBirds" && birdClassName != "PreyBirds"
-            && birdClassName != "WaterFowl"){
+    String birdClassName = bird.getClass().toString().substring(6);
+    if (!birdClassName.equals("FlightlessBirds") && !birdClassName.equals("PreyBirds")
+            && !birdClassName.equals("WaterFowl")){
       birdClassName = "Other";
     }
     this.aviaryName = birdClassName;

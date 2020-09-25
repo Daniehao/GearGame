@@ -42,50 +42,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ParrotTest">
-    <configuration name="FlightlessBirdsTest.setCharacteristicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ConservatoryTest">
+    <configuration name="ConservatoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FlightlessBirdsTest" />
-      <option name="METHOD_NAME" value="setCharacteristicTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OwlTest.setCharacteristicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="OwlTest" />
-      <option name="METHOD_NAME" value="setCharacteristicTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParrotTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParrotTest" />
+      <option name="MAIN_CLASS_NAME" value="ConservatoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WaterFowlTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConservatoryTest.addRescueInvalidTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="WaterFowlTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="ConservatoryTest" />
+      <option name="METHOD_NAME" value="addRescueInvalidTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WaterFowlTest.getPreferredFoodTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConservatoryTest.addRescueInvalidTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="WaterFowlTest" />
-      <option name="METHOD_NAME" value="getPreferredFoodTest" />
+      <option name="MAIN_CLASS_NAME" value="ConservatoryTest" />
+      <option name="METHOD_NAME" value="addRescueInvalidTest2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConservatoryTest.addRescueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConservatoryTest" />
+      <option name="METHOD_NAME" value="addRescueTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConservatoryTest.getTypeMapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConservatoryTest" />
+      <option name="METHOD_NAME" value="getTypeMapTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,11 +94,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ParrotTest" />
-        <item itemvalue="JUnit.WaterFowlTest.getPreferredFoodTest" />
-        <item itemvalue="JUnit.WaterFowlTest" />
-        <item itemvalue="JUnit.FlightlessBirdsTest.setCharacteristicTest" />
-        <item itemvalue="JUnit.OwlTest.setCharacteristicTest" />
+        <item itemvalue="JUnit.ConservatoryTest" />
+        <item itemvalue="JUnit.ConservatoryTest.addRescueTest" />
+        <item itemvalue="JUnit.ConservatoryTest.getTypeMapTest" />
+        <item itemvalue="JUnit.ConservatoryTest.addRescueInvalidTest2" />
+        <item itemvalue="JUnit.ConservatoryTest.addRescueInvalidTest" />
       </list>
     </recent_temporary>
   </component>
@@ -112,7 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600743771940</updated>
       <workItem from="1600743774564" duration="23111000" />
-      <workItem from="1600977579529" duration="23599000" />
+      <workItem from="1600977579529" duration="37734000" />
     </task>
     <servers />
   </component>

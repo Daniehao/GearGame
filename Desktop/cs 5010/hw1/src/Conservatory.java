@@ -32,27 +32,33 @@ public class Conservatory {
   }
 
   public void addBirdInAviaries(Birds bird) {
-    String birdClass = bird.getClass().toString();
-    if (birdClass != "FlightlessBirds" && birdClass != "PreyBirds" && birdClass != "WaterFowl") {
+    String birdClass = bird.getClass().toString().substring(6);
+    if (!birdClass.equals("FlightlessBirds") && !birdClass.equals("PreyBirds") && !birdClass.equals("WaterFowl")) {
       birdClass = "Other";
     }
+    boolean aviaryExist = false;
     for (int i = 0; i < aviariesList.size(); i++) {
       //Use current aviary
       if (aviariesList.get(i).getAviaryName() == birdClass && aviariesList.get(i).getCurrNum() < 5) {
+        aviaryExist = !aviaryExist;
         addIntoLists(bird, i);
       }
     }
     //create aviary
-    if (aviariesList.size() < 20) {
-      aviariesIndex++;
-      aviariesList.add(new Aviaries(bird));
-      addIntoLists(bird, aviariesIndex);
-    } else {
-      throw new IllegalArgumentException("There are already 20 aviaries!");
+    if (!aviaryExist) {
+      createAviary(bird);
     }
   }
 
-  private void addIntoLists(Birds bird, int i) {
+  public void createAviary(Birds bird) {
+      //temp
+      Aviaries aviary = new Aviaries(bird);
+      aviariesList.add(new Aviaries(bird));
+      addIntoLists(bird, aviariesIndex);
+      aviariesIndex++;
+  }
+
+  public void addIntoLists(Birds bird, int i) {
     aviariesList.get(i).addBird(bird);
     birdsAviariesMap.put(bird, i);
     addFoodMap(bird);
@@ -68,7 +74,7 @@ public class Conservatory {
     for (int i = 0; i < n; i++) {
       String food = foodList.get(i);
       if (foodMap.containsKey(food)) {
-        foodMap.put(food, foodMap.get(i) + 1);
+        foodMap.put(food, foodMap.get(food) + 1);
       } else {
         foodMap.put(food, 1);
       }
@@ -78,7 +84,7 @@ public class Conservatory {
   public String getFoodMap() {
     String foodStr = "";
     for (String food: foodMap.keySet()) {
-      foodStr = foodStr + food + "quantity is: " + foodMap.get(food) + ".";
+      foodStr = foodStr + food + " quantity is: " + foodMap.get(food) + "; ";
     }
     return foodStr;
   }
@@ -87,7 +93,7 @@ public class Conservatory {
     Map<String, List<Integer>> treeMap = new TreeMap<>(typeMap);
     String rst = "";
     for (String str : treeMap.keySet()) {
-      rst = rst + "Type is" + str + "Bird aviaries are: " + treeMap.get(str) + ".";
+      rst = rst + "The " + str + " are in: " + treeMap.get(str) + ".";
     }
     return rst;
   }
@@ -111,5 +117,9 @@ public class Conservatory {
       aviaryLocation.put(i, aviariesList.get(i).getBirdsList());
     }
     return aviaryLocation;
+  }
+
+  public List<Aviaries> getAviariesList() {
+    return aviariesList;
   }
 }
