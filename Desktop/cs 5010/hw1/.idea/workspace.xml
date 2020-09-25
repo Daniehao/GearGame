@@ -42,31 +42,42 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ConservatoryTest.addRescueTest">
-    <configuration name="ConservatoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AviariesTest.getTextTest">
+    <configuration name="AviariesTest.addBirdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ConservatoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConservatoryTest.addRescueInvalidTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ConservatoryTest" />
-      <option name="METHOD_NAME" value="addRescueInvalidTest" />
+      <option name="MAIN_CLASS_NAME" value="AviariesTest" />
+      <option name="METHOD_NAME" value="addBirdTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConservatoryTest.addRescueInvalidTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AviariesTest.getBirdsListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ConservatoryTest" />
-      <option name="METHOD_NAME" value="addRescueInvalidTest2" />
+      <option name="MAIN_CLASS_NAME" value="AviariesTest" />
+      <option name="METHOD_NAME" value="getBirdsListTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AviariesTest.getTextTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AviariesTest" />
+      <option name="METHOD_NAME" value="getTextTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AviariesTest.setAviaryNameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AviariesTest" />
+      <option name="METHOD_NAME" value="setAviaryNameTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -82,23 +93,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConservatoryTest.getTypeMapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ConservatoryTest" />
-      <option name="METHOD_NAME" value="getTypeMapTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AviariesTest.getTextTest" />
+        <item itemvalue="JUnit.AviariesTest.getBirdsListTest" />
+        <item itemvalue="JUnit.AviariesTest.setAviaryNameTest" />
+        <item itemvalue="JUnit.AviariesTest.addBirdTest" />
         <item itemvalue="JUnit.ConservatoryTest.addRescueTest" />
-        <item itemvalue="JUnit.ConservatoryTest" />
-        <item itemvalue="JUnit.ConservatoryTest.getTypeMapTest" />
-        <item itemvalue="JUnit.ConservatoryTest.addRescueInvalidTest2" />
-        <item itemvalue="JUnit.ConservatoryTest.addRescueInvalidTest" />
       </list>
     </recent_temporary>
   </component>
@@ -113,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600743771940</updated>
       <workItem from="1600743774564" duration="23111000" />
-      <workItem from="1600977579529" duration="40787000" />
+      <workItem from="1600977579529" duration="43506000" />
     </task>
     <servers />
   </component>

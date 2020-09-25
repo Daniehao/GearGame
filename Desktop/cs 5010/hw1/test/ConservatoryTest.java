@@ -2,9 +2,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 public class ConservatoryTest {
@@ -80,7 +77,7 @@ public class ConservatoryTest {
   @Test
   public void constructorTest() {
     Conservatory c2;
-    try{
+    try {
       c2 = new Conservatory();
     } catch (Exception e) {
       Assert.fail(e.getMessage());
@@ -89,12 +86,12 @@ public class ConservatoryTest {
 
   @Test
   public void createAviaryTest() {
-   c1.createAviary(parrotBird1);
-   c1.createAviary(owl1);
-   c1.createAviary(waterFowl1);
-   assertEquals(c1.getBirdAviary(parrotBird1), "This bird is in Aviary: 0.");
-   assertEquals(c1.getBirdAviary(owl1), "This bird is in Aviary: 1.");
-   assertEquals(c1.getBirdAviary(waterFowl1), "This bird is in Aviary: 2.");
+    c1.createAviary(parrotBird1);
+    c1.createAviary(owl1);
+    c1.createAviary(waterFowl1);
+    assertEquals(c1.getBirdAviary(parrotBird1), "This bird is in Aviary: 0.");
+    assertEquals(c1.getBirdAviary(owl1), "This bird is in Aviary: 1.");
+    assertEquals(c1.getBirdAviary(waterFowl1), "This bird is in Aviary: 2.");
   }
 
   @Test
@@ -106,7 +103,7 @@ public class ConservatoryTest {
     c1.createAviary(flightLessBird1);
     c1.createAviary(flightLessBird2);
     assertEquals("The blackowl are in: [1].The ducks are in: [2].The eagles are in: [3]."
-            + "The gray parrot are in: [0].The kiwis are in: [4].The moas are in: [5]."
+                    + "The gray parrot are in: [0].The kiwis are in: [4].The moas are in: [5]."
             , c1.getTypeMap());
   }
 

@@ -10,11 +10,7 @@ public class Aviaries {
   public Aviaries(Birds bird) {
     birdsList = new ArrayList<>();
     text = new ArrayList<>();
-
-//    birdsList.add(bird);
     setAviaryName(bird);
-//    currNum = 1;
-//    text.add(bird.getCharacteristic());
   }
 
   public void addBird(Birds bird) {

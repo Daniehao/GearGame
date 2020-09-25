@@ -22,11 +22,9 @@ public class Conservatory {
   public void addRescue(Birds bird) {
     if (!bird.getIsExtinct() && aviariesList.size() < 20) {
       addBirdInAviaries(bird);
-    }
-    else if (aviariesList.size() >= 20) {
+    } else if (aviariesList.size() >= 20) {
       throw new IllegalArgumentException("The aviaries are full.");
-    }
-    else {
+    } else {
       throw new IllegalArgumentException("The bird has already extinct.");
     }
   }
@@ -51,11 +49,11 @@ public class Conservatory {
   }
 
   public void createAviary(Birds bird) {
-      //temp
-      Aviaries aviary = new Aviaries(bird);
-      aviariesList.add(new Aviaries(bird));
-      addIntoLists(bird, aviariesIndex);
-      aviariesIndex++;
+    //temp
+    Aviaries aviary = new Aviaries(bird);
+    aviariesList.add(new Aviaries(bird));
+    addIntoLists(bird, aviariesIndex);
+    aviariesIndex++;
   }
 
   public void addIntoLists(Birds bird, int i) {
@@ -83,7 +81,7 @@ public class Conservatory {
 
   public String getFoodMap() {
     String foodStr = "";
-    for (String food: foodMap.keySet()) {
+    for (String food : foodMap.keySet()) {
       foodStr = foodStr + food + " quantity is: " + foodMap.get(food) + "; ";
     }
     return foodStr;
@@ -99,8 +97,8 @@ public class Conservatory {
   }
 
   public String getBirdAviary(Birds bird) {
-    for (Birds birdInMap: birdsAviariesMap.keySet()) {
-      if (birdInMap.equals(bird)){
+    for (Birds birdInMap : birdsAviariesMap.keySet()) {
+      if (birdInMap.equals(bird)) {
         return "This bird is in Aviary: " + birdsAviariesMap.get(birdInMap) + ".";
       }
     }
@@ -117,7 +115,7 @@ public class Conservatory {
     for (int i = 0; i < aviariesList.size(); i++) {
       aviaryLocation.put(i, aviariesList.get(i).getBirdsList());
       aviaryLocationStr = aviaryLocationStr + "For aviary index " + i + ", the birds are "
-              + aviariesList.get(i).getBirdsList().toString() +". ";
+              + aviariesList.get(i).getBirdsList().toString() + ". ";
     }
     return aviaryLocationStr;
   }
