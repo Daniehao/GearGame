@@ -149,15 +149,7 @@ public class Battle {
   }
 
   /**
-   * Return the string of player 2's defend strength.
-   * @return The player's defend strength.
-   */
-  public String player1DefendPts() {
-    return String.format("Player 1 has %s points of defend strenth.", player1.getTotalDefendPts());
-  }
-  
-  /**
-   * Return the string of player 2's defend strength.
+   * Return the string of player 1's defend strength.
    * @return The player's defend strength.
    */
   public String player1DefendPts() {
@@ -165,12 +157,21 @@ public class Battle {
   }
 
   /**
+   * Return the string of player 2's attack strength.
+   * @return The player's defend strength.
+   */
+  public String player2AttackPts() {
+    return String.format("Player 2 has %s points of attack strenth.", player2.getTotalAttackPts());
+  }
+
+  /**
    * Return the string of player 2's defend strength.
    * @return The player's defend strength.
    */
-  public String player1DefendPts() {
-    return String.format("Player 1 has %s points of defend strenth.", player1.getTotalDefendPts());
+  public String player2DefendPts() {
+    return String.format("Player 2 has %s points of defend strenth.", player2.getTotalDefendPts());
   }
+
   /**
    * Get the winner by who has the lower damage.
    *

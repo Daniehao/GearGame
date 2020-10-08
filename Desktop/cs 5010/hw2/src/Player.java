@@ -27,6 +27,7 @@ public class Player implements Character {
     headList = new ArrayList<>();
     handList = new ArrayList<>();
     footList = new ArrayList<>();
+    equipments = new ArrayList<>();
     combinedList = new ArrayList<>();
     combinedList.add(false);
     combinedList.add(false);

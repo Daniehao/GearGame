@@ -30,10 +30,11 @@ public class BattleTest {
     while (battle1.getEquipments().size() != 0 && !player1.getDone() || !player2.getDone()) {
       battle1.chooseEquipments(player1, player2);
     }
-    assertEquals(11, battle1.player1AttackPts());
-    assertEquals(18, battle1.player1DefendPts());
-    assertEquals(8, battle1.player2AttackPts());
-    assertEquals(6, battle1.player2DefendPts());
+    assertEquals(11, player1.getTotalAttackPts());
+    assertEquals(18, player1.getTotalDefendPts());
+    assertEquals(8, player2.getTotalAttackPts());
+    assertEquals(6,player2.getTotalDefendPts());
+
     assertEquals("Player 1 wins.", battle1.getWinner(player1, player2));
   }
 
