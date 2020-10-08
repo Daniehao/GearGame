@@ -1,3 +1,6 @@
+/**
+ * The interface for gear class includes getter methods related to Gear operations.
+ */
 public interface Equipment extends Comparable<Equipment> {
   public String getGearName();
 

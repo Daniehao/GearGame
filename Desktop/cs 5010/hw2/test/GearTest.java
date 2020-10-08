@@ -7,6 +7,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test for the Gear class to check if the getters and compareTo methods return the correct value.
+ */
 public class GearTest {
   private Equipment gear1;
   private Equipment gear2;

@@ -3,6 +3,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test for the Player class to check whether all of the functions in Player class works fine.
+ */
 public class PlayerTest {
   private Character player1;
   private Character player2;
@@ -41,6 +44,7 @@ public class PlayerTest {
     player1.addSingle(gear2);
     assertEquals(1, player1.getHeadCount());
     assertEquals(1, player1.getHandCount());
+    assertEquals(0, player1.getFootCount());
   }
 
   @Test

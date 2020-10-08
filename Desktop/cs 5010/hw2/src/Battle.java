@@ -118,7 +118,7 @@ public class Battle {
    * Return the string of the equipments that player 1 have.
    * @return The output of player 1's equipments.
    */
-  public String getPlayer1TotalEquipments() {
+  public String getPlayer1TotalEquipments(Character player1) {
     String str = "";
     List<Equipment> player1Equipments = player1.getEquipments();
     for (Equipment equipment: player1Equipments) {
@@ -131,7 +131,7 @@ public class Battle {
    * Return the string of the equipments that player 2 have.
    * @return The output of player 2's equipments.
    */
-  public String getPlayer2TotalEquipments() {
+  public String getPlayer2TotalEquipments(Character player2) {
     String str = "";
     List<Equipment> player2Equipments = player2.getEquipments();
     for (Equipment equipment: player2Equipments) {
@@ -144,7 +144,7 @@ public class Battle {
    * Return the string of player 1's attack strength.
    * @return The player's attack strength.
    */
-  public String player1AttackPts(Player player1) {
+  public String player1AttackPts(Character player1) {
     int num = player1.getTotalAttackPts();
     return String.format("Player 1 has %s points of attack strenth.", num);
   }
@@ -153,7 +153,7 @@ public class Battle {
    * Return the string of player 1's defend strength.
    * @return The player's defend strength.
    */
-  public String player1DefendPts(Player player1) {
+  public String player1DefendPts(Character player1) {
     return String.format("Player 1 has %s points of defend strenth.", player1.getTotalDefendPts());
   }
 
@@ -161,7 +161,7 @@ public class Battle {
    * Return the string of player 2's attack strength.
    * @return The player's defend strength.
    */
-  public String player2AttackPts(Player player2) {
+  public String player2AttackPts(Character player2) {
     return String.format("Player 2 has %s points of attack strenth.", player2.getTotalAttackPts());
   }
 
@@ -169,7 +169,7 @@ public class Battle {
    * Return the string of player 2's defend strength.
    * @return The player's defend strength.
    */
-  public String player2DefendPts(Player player2) {
+  public String player2DefendPts(Character player2) {
     return String.format("Player 2 has %s points of defend strenth.", player2.getTotalDefendPts());
   }
 
@@ -180,7 +180,7 @@ public class Battle {
    * @param player2 The 2nd player.
    * @return The result of the game.
    */
-  public String getWinner(Player player1, Player player2) {
+  public String getWinner(Character player1, Character player2) {
     int player1Damage = player2.getTotalAttackPts() - player1.getTotalDefendPts();
     int player2Damage = player1.getTotalAttackPts() - player2.getTotalDefendPts();
     if (player1Damage < player2Damage) {

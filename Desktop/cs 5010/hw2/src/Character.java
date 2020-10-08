@@ -1,5 +1,8 @@
 import java.util.List;
 
+/**
+ * Interface for player class includes all of the operations related to player.
+ */
 public interface Character {
   public void addAttack(int attack);
 
