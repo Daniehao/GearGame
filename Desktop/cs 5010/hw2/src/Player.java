@@ -3,9 +3,9 @@ import java.util.List;
 
 /**
  * The class which contains operations to retrieve the current player's attack points, defend
- * points, count of the hand gear, count of the head gear, count of the foot gear,
- * and operations to check whether we should add a single equipment or whether we should combine
- * with a equipment that a player already has.
+ * points, count of the hand gear, count of the head gear, count of the foot gear, and operations to
+ * check whether we should add a single equipment or whether we should combine with a equipment that
+ * a player already has.
  */
 public class Player implements Character {
   private int attackPts;
@@ -19,6 +19,7 @@ public class Player implements Character {
 
   /**
    * Constructor for Player class.
+   *
    * @param index The index of the current player.
    */
   public Player(int index) {
@@ -37,6 +38,7 @@ public class Player implements Character {
 
   /**
    * Add attack points to the player.
+   *
    * @param attack The attack point that need to be added.
    */
   @Override
@@ -46,6 +48,7 @@ public class Player implements Character {
 
   /**
    * Add defend points to the player.
+   *
    * @param defend The defend point that need to be added.
    */
   @Override
@@ -55,6 +58,7 @@ public class Player implements Character {
 
   /**
    * Get the total attack points.
+   *
    * @return The total attack points of current player.
    */
   @Override
@@ -64,6 +68,7 @@ public class Player implements Character {
 
   /**
    * Get the total defend points.
+   *
    * @return The total defend points of current player.
    */
   @Override
@@ -73,6 +78,7 @@ public class Player implements Character {
 
   /**
    * Get the total number of head gears.
+   *
    * @return The total number of head gears for the current player.
    */
   @Override
@@ -82,6 +88,7 @@ public class Player implements Character {
 
   /**
    * Get the total number of foot gears.
+   *
    * @return The total number of foot gears for the current player.
    */
   @Override
@@ -91,6 +98,7 @@ public class Player implements Character {
 
   /**
    * Get the total number of hand gears.
+   *
    * @return The total number of hand gears for the current player.
    */
   @Override
@@ -116,6 +124,7 @@ public class Player implements Character {
 
   /**
    * Check if the player could combine with the input equipment.
+   *
    * @param equipment The equipment object.
    * @return True/False.
    */
@@ -133,6 +142,7 @@ public class Player implements Character {
 
   /**
    * Choose which type of equipment should combine with the input equipment object.
+   *
    * @param equipment The equipment object.
    * @return The combined equipment.
    */
@@ -149,9 +159,10 @@ public class Player implements Character {
 
   /**
    * Combine the input equipment with one of the same type equipment that the player currently has.
-   * @param equipment The equipment object.
+   *
+   * @param equipment    The equipment object.
    * @param equipmentLst The specific type of the gear list that the player currently has.
-   * @param index The index of the combinedList, order by the gear type in the Type class.
+   * @param index        The index of the combinedList, order by the gear type in the Type class.
    * @return The combined equipment.
    */
   private Equipment combineSpecificType(Equipment equipment, List<Equipment> equipmentLst,
@@ -174,6 +185,7 @@ public class Player implements Character {
 
   /**
    * Check if the input equipment can be added individually to the gear lists.
+   *
    * @param equipment The input equipment.
    * @return True/False.
    */
@@ -198,8 +210,8 @@ public class Player implements Character {
 
   /**
    * Add the input equipment individually to the gear lists.
+   *
    * @param equipment The input equipment.
-   * @return True/False.
    */
   @Override
   public void addSingle(Equipment equipment) {
@@ -227,6 +239,7 @@ public class Player implements Character {
 
   /**
    * Return the list of equipments for the current player.
+   *
    * @return List of equipments.
    */
   @Override

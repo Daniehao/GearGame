@@ -12,11 +12,12 @@ public class Gear implements Equipment {
 
   /**
    * Constructor for the gear object.
-   * @param type Type of gear.
-   * @param name  Name of gear.
-   * @param isCombined  Whether it is combined.
-   * @param attack  The attack strength;
-   * @param defend The defend strength;
+   *
+   * @param type       Type of gear.
+   * @param name       Name of gear.
+   * @param isCombined Whether it is combined.
+   * @param attack     The attack strength;
+   * @param defend     The defend strength;
    */
   public Gear(Type type, String name, boolean isCombined, int attack, int defend) {
     this.type = type;
@@ -28,6 +29,7 @@ public class Gear implements Equipment {
 
   /**
    * Get the name of the gear.
+   *
    * @return Name of gear.
    */
   @Override
@@ -37,6 +39,7 @@ public class Gear implements Equipment {
 
   /**
    * Get the type of the gear.
+   *
    * @return Type of gear.
    */
   @Override
@@ -46,6 +49,7 @@ public class Gear implements Equipment {
 
   /**
    * Get the defend points of the gear.
+   *
    * @return The defend points of the gear.
    */
   @Override
@@ -55,6 +59,7 @@ public class Gear implements Equipment {
 
   /**
    * Get the attack points of the gear.
+   *
    * @return The attack points of the gear.
    */
   @Override
@@ -64,6 +69,7 @@ public class Gear implements Equipment {
 
   /**
    * Get if the gear is combined already or not.
+   *
    * @return True/False.
    */
   @Override
@@ -74,6 +80,7 @@ public class Gear implements Equipment {
   /**
    * Compare the equipment with the input equipment order by attack strength and follows by defend
    * strength.
+   *
    * @param other The input equipment.
    * @return The comparator result.
    */
@@ -87,8 +94,9 @@ public class Gear implements Equipment {
   }
 
   /**
+   * Return the type, name, attack strength, and defend strength of the current gear.
    *
-   * @return
+   * @return The string of the gear's type, name, attack strength, and defend strength.
    */
   @Override
   public String toString() {

@@ -9,8 +9,6 @@ import java.util.List;
 public class Battle {
   private Boolean isFirstPlayer;
   private List<Equipment> equipments;
-  private Character player1;
-  private Character player2;
 
   /**
    * Constructor for Battle class.
@@ -29,8 +27,6 @@ public class Battle {
   public Battle(Equipment eq1, Equipment eq2, Equipment eq3, Equipment eq4, Equipment eq5,
                 Equipment eq6, Equipment eq7, Equipment eq8, Equipment eq9, Equipment eq10) {
     equipments = new ArrayList<>();
-    player1 = new Player(1);
-    player2 = new Player(2);
     addEquipments(eq1);
     addEquipments(eq2);
     addEquipments(eq3);

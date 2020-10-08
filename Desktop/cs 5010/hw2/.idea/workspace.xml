@@ -29,6 +29,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="PMD" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -42,7 +43,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.BattleTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="hw2" />
@@ -91,8 +92,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BattleTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.PlayerTest.addSingleTest" />
         <item itemvalue="JUnit.BattleTest.getPlayersDefendStrenth" />
         <item itemvalue="JUnit.BattleTest.getPlayersAttackStrenth" />
@@ -109,7 +110,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602011221395</updated>
-      <workItem from="1602011223857" duration="45018000" />
+      <workItem from="1602011223857" duration="46315000" />
     </task>
     <servers />
   </component>

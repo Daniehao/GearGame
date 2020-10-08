@@ -8,7 +8,6 @@ import static org.junit.Assert.assertEquals;
  */
 public class PlayerTest {
   private Character player1;
-  private Character player2;
   private Equipment gear1;
   private Equipment gear2;
   private Equipment gear3;
@@ -17,7 +16,6 @@ public class PlayerTest {
   @Before
   public void setup() {
     player1 = new Player(1);
-    player2 = new Player(2);
     gear1 = new Gear(Type.HAND, "Happy Gloves", false, 2, 3);
     gear2 = new Gear(Type.HEAD, "Pretty halmet", false, 5, 2);
     gear3 = new Gear(Type.HEAD, "Cute Visor", false, 5, 1);
