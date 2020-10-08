@@ -144,15 +144,16 @@ public class Battle {
    * Return the string of player 1's attack strength.
    * @return The player's attack strength.
    */
-  public String player1AttackPts() {
-    return String.format("Player 1 has %s points of attack strenth.", player1.getTotalAttackPts());
+  public String player1AttackPts(Player player1) {
+    int num = player1.getTotalAttackPts();
+    return String.format("Player 1 has %s points of attack strenth.", num);
   }
 
   /**
    * Return the string of player 1's defend strength.
    * @return The player's defend strength.
    */
-  public String player1DefendPts() {
+  public String player1DefendPts(Player player1) {
     return String.format("Player 1 has %s points of defend strenth.", player1.getTotalDefendPts());
   }
 
@@ -160,7 +161,7 @@ public class Battle {
    * Return the string of player 2's attack strength.
    * @return The player's defend strength.
    */
-  public String player2AttackPts() {
+  public String player2AttackPts(Player player2) {
     return String.format("Player 2 has %s points of attack strenth.", player2.getTotalAttackPts());
   }
 
@@ -168,7 +169,7 @@ public class Battle {
    * Return the string of player 2's defend strength.
    * @return The player's defend strength.
    */
-  public String player2DefendPts() {
+  public String player2DefendPts(Player player2) {
     return String.format("Player 2 has %s points of defend strenth.", player2.getTotalDefendPts());
   }
 

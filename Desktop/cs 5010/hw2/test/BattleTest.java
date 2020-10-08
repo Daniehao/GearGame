@@ -34,8 +34,26 @@ public class BattleTest {
     assertEquals(18, player1.getTotalDefendPts());
     assertEquals(8, player2.getTotalAttackPts());
     assertEquals(6,player2.getTotalDefendPts());
-
+    System.out.println(battle1.getPlayer1TotalEquipments());
+//    System.out.println(battle1.player1DefendPts());
     assertEquals("Player 1 wins.", battle1.getWinner(player1, player2));
+  }
+
+  @Test
+  public void getPlayersEquipments() {
+    while (battle1.getEquipments().size() != 0 && !player1.getDone() || !player2.getDone()) {
+      battle1.chooseEquipments(player1, player2);
+    }
+    System.out.println(player1.getEquipments(). toString());
+  }
+
+  @Test
+  public void getPlayersAttackStrenth() {
+    while (battle1.getEquipments().size() != 0 && !player1.getDone() || !player2.getDone()) {
+      battle1.chooseEquipments(player1, player2);
+    }
+    battle1.player1AttackPts(player1);
+    System.out.println(battle1.player1AttackPts(player1));
   }
 
   @Test

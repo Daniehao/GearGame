@@ -42,7 +42,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BattleTest.chooseEquipmentsTest">
+  <component name="RunManager" selected="JUnit.BattleTest.getPlayersAttackStrenth">
     <configuration name="BattleTest.chooseEquipmentsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw2" />
       <option name="PACKAGE_NAME" value="" />
@@ -63,11 +63,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GearTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BattleTest.getPlayersAttackStrenth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw2" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GearTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="BattleTest" />
+      <option name="METHOD_NAME" value="getPlayersAttackStrenth" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BattleTest.getPlayersEquipments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BattleTest" />
+      <option name="METHOD_NAME" value="getPlayersEquipments" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,22 +93,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BattleTest.getPlayersAttackStrenth" />
+        <item itemvalue="JUnit.BattleTest.getPlayersEquipments" />
         <item itemvalue="JUnit.BattleTest.chooseEquipmentsTest" />
         <item itemvalue="JUnit.GearTest.compareToTest" />
         <item itemvalue="JUnit.BattleTest.getEquipments" />
-        <item itemvalue="JUnit.GearTest" />
-        <item itemvalue="JUnit.PlayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +113,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602011221395</updated>
-      <workItem from="1602011223857" duration="39711000" />
+      <workItem from="1602011223857" duration="40522000" />
     </task>
     <servers />
   </component>
@@ -123,8 +125,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/BattleTest.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="29" />
+          <line>54</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Battle.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
