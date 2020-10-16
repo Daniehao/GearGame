@@ -27,11 +27,11 @@ public class Maze {
     generateCells(rows, cols);
     int totalWalls = (cols - 1) * rows + (rows - 1) * cols;
     for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < rows; j++) {
-        unionNums[i][j] = i + cols*j;
+      for (int j = 0; j < cols; j++) {
+        unionNums[i][j] = i*cols + j;
         List<Integer> temp = new ArrayList<>();
-        temp.add(i + cols*j);
-        unionToCells.put(i + cols*j, temp);
+        temp.add(i*cols + j);
+        unionToCells.put(i*cols + j, temp);
       }
     }
     for (int i = 0; i < totalWalls; i++) {
@@ -39,7 +39,7 @@ public class Maze {
     }
     Random random = new Random();
     int removedCount = 0;
-    while (removedCount < rows*cols - 1 || savedWall.size() < totalWalls - rows*cols + 1) {
+    while (removedCount < rows*cols - 1 && savedWall.size() < totalWalls - rows*cols + 1) {
       int randomInt = random.nextInt(walls.size());
       int[][] cellsPositions = getCellsPositionByWall(walls.get(randomInt));
       int cell1X = cellsPositions[0][0];
@@ -49,15 +49,7 @@ public class Maze {
       if (unionNums[cell1X][cell1Y] == unionNums[cell2X][cell2Y]) {
         savedWall.add(walls.get(randomInt));
       } else {
-        Cell cell1 = maze[cell1X][cell1Y];
-        Cell cell2 = maze[cell2X][cell2Y];
-        if (cell1X == cell2X) {
-          cell1.setNextCell(cell2, "right");
-          cell2.setNextCell(cell1, "left");
-        } else {
-          cell1.setNextCell(cell2, "down");
-          cell2.setNextCell(cell1, "up");
-        }
+        linkCells(cell1X, cell1Y, cell2X, cell2Y);
         removedCount++;
         int unionNum1 = unionNums[cell1X][cell1Y];
         int unionNum2 = unionNums[cell2X][cell2Y];
@@ -68,28 +60,38 @@ public class Maze {
         unionToCells.remove(unionNum1);
       }
       walls.remove(randomInt);
+      System.out.println(removedCount + ", " + savedWall.size());
     }
     if (removedCount == rows*cols - 1) {
-      for (int i = 0; i < walls.size(); i++) {
-        savedWall.add(walls.get(i));
-      }
-    }
-
-    if (savedWall.size() == totalWalls - rows*cols + 1) {
+        savedWall.addAll(walls);
+    } else{
       for (int wall: walls) {
         int[][] cellsPositions = getCellsPositionByWall(wall);
         int cell1X = cellsPositions[0][0];
         int cell1Y = cellsPositions[0][1];
         int cell2X = cellsPositions[1][0];
         int cell2Y = cellsPositions[1][1];
+        linkCells(cell1X, cell1Y, cell2X, cell2Y);
       }
+    }
+  }
+
+  private void linkCells(int cell1X, int cell1Y, int cell2X, int cell2Y) {
+    Cell cell1 = maze[cell1X][cell1Y];
+    Cell cell2 = maze[cell2X][cell2Y];
+    if (cell1X == cell2X) {
+      cell1.setNextCell(cell2, "right");
+      cell2.setNextCell(cell1, "left");
+    } else {
+      cell1.setNextCell(cell2, "down");
+      cell2.setNextCell(cell1, "up");
     }
   }
 
   private void generateCells(int rows, int cols) {
     maze = new Cell[rows][cols];
     for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < rows; j++) {
+      for (int j = 0; j < cols; j++) {
         maze[i][j] = new Cell();
       }
     }
@@ -102,8 +104,8 @@ public class Maze {
       return new int[][] {{rowIndex, colIndex}, {rowIndex, colIndex + 1}};
     } else {
       wallIndex -= rows * (cols - 1);
-      int colIndex = wallIndex % (rows - 1);
-      int rowIndex = wallIndex / (rows - 1);
+      int colIndex = wallIndex % cols;
+      int rowIndex = wallIndex / cols;
       return new int[][] {{rowIndex, colIndex}, {rowIndex + 1, colIndex}};
     }
   }
