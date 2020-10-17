@@ -6,6 +6,7 @@ public class Cell {
   Map<String, Cell> cellMap;
   boolean hasGold;
   boolean hasThief;
+  int goldNum;
 
   public Cell() {
     cellMap = new HashMap<>();
@@ -15,6 +16,7 @@ public class Cell {
     cellMap.put("down", null);
     hasGold = false;
     hasThief = false;
+    goldNum = 0;
   }
 
   public void setNextCell(Cell nextCell, String directionSide) {
@@ -34,8 +36,9 @@ public class Cell {
     }
   }
 
-  public void setGold() {
-    hasGold = true;
+  public void setGold(boolean hasGold, int goldNum) {
+    this.hasGold = hasGold;
+    this.goldNum = goldNum;
   }
 
   public void setThief() {

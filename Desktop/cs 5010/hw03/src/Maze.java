@@ -4,25 +4,43 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class Maze {
+public class Maze implements MazeGame {
+  List<Integer> savedWall;
   private int rows;
   private int cols;
   private int remains;
   private Cell[][] maze;
   private boolean isWrapping;
-  List<Integer> savedWall;
-  int[] goal;
+  private int playerGold;
+  private int playerPosX;
+  private int playerPosY;
 
-  public Maze(int rows, int cols, int remains, boolean isWrapping) {
+  public Maze(int rows, int cols, int remains, boolean isPerfect, boolean isWrapping,
+              int playerPosX, int playerPosY) {
     this.rows = rows;
     this.cols = cols;
     this.remains = remains;
     this.isWrapping = isWrapping;
+    this.playerPosX = playerPosX;
+    this.playerPosY = playerPosY;
+    playerGold = 0;
     savedWall = new ArrayList<>();
-    generatePerfectMaze();
-    if (remains < rows*cols - 1) {
-      generateRoomMaze();
+    if (rows < 0) {
+      throw new IllegalArgumentException("rows input cannot be negative!");
     }
+    if (cols < 0) {
+      throw new IllegalArgumentException("columns input cannot be negative!");
+    }
+    generatePerfectMaze();
+    if (!isPerfect) {
+      if (remains < rows * cols - 1 && remains >= 0) {
+        generateRoomMaze();
+      } else {
+        throw new IllegalArgumentException("The remains input is invalid since it needs to be 0 " +
+                "to rows*columns - 1");
+      }
+    }
+
     if (isWrapping) {
       changeToWrappingMaze();
     }
@@ -36,10 +54,10 @@ public class Maze {
     int totalWalls = (cols - 1) * rows + (rows - 1) * cols;
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
-        cellToUnion[i][j] = i*cols + j;
+        cellToUnion[i][j] = i * cols + j;
         List<Integer> temp = new ArrayList<>();
-        temp.add(i*cols + j);
-        unionToCells.put(i*cols + j, temp);
+        temp.add(i * cols + j);
+        unionToCells.put(i * cols + j, temp);
       }
     }
     for (int i = 0; i < totalWalls; i++) {
@@ -47,7 +65,7 @@ public class Maze {
     }
     Random random = new Random();
     int removedCount = 0;
-    while (removedCount < rows*cols - 1 && savedWall.size() < totalWalls - rows*cols + 1) {
+    while (removedCount < rows * cols - 1 && savedWall.size() < totalWalls - rows * cols + 1) {
       int randomInt = random.nextInt(walls.size());
       int[][] cellsPositions = getCellsPositionByWall(walls.get(randomInt));
       int cell1X = cellsPositions[0][0];
@@ -65,10 +83,10 @@ public class Maze {
       walls.remove(randomInt);
       System.out.println(removedCount + ", " + savedWall.size());
     }
-    if (removedCount == rows*cols - 1) {
-        savedWall.addAll(walls);
-    } else{
-      for (int wall: walls) {
+    if (removedCount == rows * cols - 1) {
+      savedWall.addAll(walls);
+    } else {
+      for (int wall : walls) {
         int[][] cellsPositions = getCellsPositionByWall(wall);
         int cell1X = cellsPositions[0][0];
         int cell1Y = cellsPositions[0][1];
@@ -83,8 +101,8 @@ public class Maze {
 
   private void setUnionNum(Map<Integer, List<Integer>> unionToCells, int[][] cellToUnion,
                            int unionNum1, int unionNum2) {
-    for (int cellIndex: unionToCells.get(unionNum1)) {
-      cellToUnion[cellIndex/cols][cellIndex%cols] = unionNum2;
+    for (int cellIndex : unionToCells.get(unionNum1)) {
+      cellToUnion[cellIndex / cols][cellIndex % cols] = unionNum2;
     }
     unionToCells.get(unionNum2).addAll(unionToCells.get(unionNum1));
     unionToCells.remove(unionNum1);
@@ -104,8 +122,8 @@ public class Maze {
 
   private void generateCells(int rows, int cols) {
     maze = new Cell[rows][cols];
-    int goldTotal = (int)(rows * cols * .2);
-    int thiefTotal = (int)(rows * cols * .1);
+    int goldTotal = (int) (rows * cols * .2);
+    int thiefTotal = (int) (rows * cols * .1);
     Random random = new Random();
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
@@ -116,7 +134,7 @@ public class Maze {
     for (int i = 0; i < goldTotal; i++) {
       int indexX = random.nextInt(rows);
       int indexY = random.nextInt(cols);
-      maze[indexX][indexY].setGold();
+      maze[indexX][indexY].setGold(true, 50);
     }
 
     for (int i = 0; i < thiefTotal; i++) {
@@ -127,15 +145,15 @@ public class Maze {
   }
 
   private int[][] getCellsPositionByWall(int wallIndex) {
-    if (wallIndex < rows* (cols - 1)) {
+    if (wallIndex < rows * (cols - 1)) {
       int colIndex = wallIndex % (cols - 1);
       int rowIndex = wallIndex / (cols - 1);
-      return new int[][] {{rowIndex, colIndex}, {rowIndex, colIndex + 1}};
+      return new int[][]{{rowIndex, colIndex}, {rowIndex, colIndex + 1}};
     } else {
       wallIndex -= rows * (cols - 1);
       int colIndex = wallIndex % cols;
       int rowIndex = wallIndex / cols;
-      return new int[][] {{rowIndex, colIndex}, {rowIndex + 1, colIndex}};
+      return new int[][]{{rowIndex, colIndex}, {rowIndex + 1, colIndex}};
     }
   }
 
@@ -160,5 +178,63 @@ public class Maze {
     for (int i = 0; i < rows; i++) {
       linkCells(i, 0, i, cols - 1);
     }
+  }
+
+  public void goLeft() {
+    if (playerPosY - 1 >= 0) {
+      playerPosY--;
+      checkGoldThief();
+    } else {
+      throw new IllegalArgumentException("Player's move is out of bound!");
+    }
+  }
+
+  public void goRight() {
+    if (playerPosY + 1 < cols) {
+      playerPosY++;
+      checkGoldThief();
+    } else {
+      throw new IllegalArgumentException("Player's move is out of bound!");
+    }
+  }
+
+  public void goUp() {
+    if (playerPosX - 1 >= 0) {
+      playerPosX--;
+      checkGoldThief();
+    } else {
+      throw new IllegalArgumentException("Player's move is out of bound!");
+    }
+  }
+
+  public void goDown() {
+    if (playerPosX + 1 < rows) {
+      playerPosX++;
+      checkGoldThief();
+    } else {
+      throw new IllegalArgumentException("Player's move is out of bound!");
+    }
+  }
+
+  private void checkGoldThief() {
+    if (maze[playerPosX][playerPosY].hasGold()) {
+      playerGold++;
+      maze[playerPosX][playerPosY].setGold(false, 0);
+    }
+    if (maze[playerPosX][playerPosY].hasThief()) {
+      playerGold -= (int) (0.1 * playerGold);
+    }
+  }
+
+  public int getPlayerPosX() {
+    return playerPosX;
+  }
+
+  public int getPlayerPosY() {
+    return playerPosY;
+  }
+
+  public int getPlayerGold() {
+    return playerGold;
   }
 }
