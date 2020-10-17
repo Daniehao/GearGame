@@ -10,25 +10,33 @@ public class Maze {
   private int remains;
   private Cell[][] maze;
   private boolean isWrapping;
+  List<Integer> savedWall;
+  int[] goal;
 
   public Maze(int rows, int cols, int remains, boolean isWrapping) {
     this.rows = rows;
     this.cols = cols;
     this.remains = remains;
     this.isWrapping = isWrapping;
-    generatePerfectMaze(rows, cols);
+    savedWall = new ArrayList<>();
+    generatePerfectMaze();
+    if (remains < rows*cols - 1) {
+      generateRoomMaze();
+    }
+    if (isWrapping) {
+      changeToWrappingMaze();
+    }
   }
 
-  private void generatePerfectMaze(int rows, int cols) {
-    int[][] unionNums = new int[rows][cols];
+  private void generatePerfectMaze() {
+    int[][] cellToUnion = new int[rows][cols];
     List<Integer> walls = new ArrayList<>();
-    List<Integer> savedWall = new ArrayList<>();
     Map<Integer, List<Integer>> unionToCells = new HashMap<>();
     generateCells(rows, cols);
     int totalWalls = (cols - 1) * rows + (rows - 1) * cols;
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
-        unionNums[i][j] = i*cols + j;
+        cellToUnion[i][j] = i*cols + j;
         List<Integer> temp = new ArrayList<>();
         temp.add(i*cols + j);
         unionToCells.put(i*cols + j, temp);
@@ -46,18 +54,13 @@ public class Maze {
       int cell1Y = cellsPositions[0][1];
       int cell2X = cellsPositions[1][0];
       int cell2Y = cellsPositions[1][1];
-      if (unionNums[cell1X][cell1Y] == unionNums[cell2X][cell2Y]) {
+      if (cellToUnion[cell1X][cell1Y] == cellToUnion[cell2X][cell2Y]) {
         savedWall.add(walls.get(randomInt));
       } else {
         linkCells(cell1X, cell1Y, cell2X, cell2Y);
         removedCount++;
-        int unionNum1 = unionNums[cell1X][cell1Y];
-        int unionNum2 = unionNums[cell2X][cell2Y];
-        for (int cellIndex: unionToCells.get(unionNum1)) {
-          unionNums[cellIndex/cols][cellIndex%cols] = unionNum2;
-        }
-        unionToCells.get(unionNum2).addAll(unionToCells.get(unionNum1));
-        unionToCells.remove(unionNum1);
+        setUnionNum(unionToCells, cellToUnion, cellToUnion[cell1X][cell1Y],
+                cellToUnion[cell2X][cell2Y]);
       }
       walls.remove(randomInt);
       System.out.println(removedCount + ", " + savedWall.size());
@@ -72,8 +75,19 @@ public class Maze {
         int cell2X = cellsPositions[1][0];
         int cell2Y = cellsPositions[1][1];
         linkCells(cell1X, cell1Y, cell2X, cell2Y);
+        setUnionNum(unionToCells, cellToUnion, cellToUnion[cell1X][cell1Y],
+                cellToUnion[cell2X][cell2Y]);
       }
     }
+  }
+
+  private void setUnionNum(Map<Integer, List<Integer>> unionToCells, int[][] cellToUnion,
+                           int unionNum1, int unionNum2) {
+    for (int cellIndex: unionToCells.get(unionNum1)) {
+      cellToUnion[cellIndex/cols][cellIndex%cols] = unionNum2;
+    }
+    unionToCells.get(unionNum2).addAll(unionToCells.get(unionNum1));
+    unionToCells.remove(unionNum1);
   }
 
   private void linkCells(int cell1X, int cell1Y, int cell2X, int cell2Y) {
@@ -90,10 +104,25 @@ public class Maze {
 
   private void generateCells(int rows, int cols) {
     maze = new Cell[rows][cols];
+    int goldTotal = (int)(rows * cols * .2);
+    int thiefTotal = (int)(rows * cols * .1);
+    Random random = new Random();
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
         maze[i][j] = new Cell();
       }
+    }
+
+    for (int i = 0; i < goldTotal; i++) {
+      int indexX = random.nextInt(rows);
+      int indexY = random.nextInt(cols);
+      maze[indexX][indexY].setGold();
+    }
+
+    for (int i = 0; i < thiefTotal; i++) {
+      int indexX = random.nextInt(rows);
+      int indexY = random.nextInt(cols);
+      maze[indexX][indexY].setThief();
     }
   }
 
@@ -107,6 +136,29 @@ public class Maze {
       int colIndex = wallIndex % cols;
       int rowIndex = wallIndex / cols;
       return new int[][] {{rowIndex, colIndex}, {rowIndex + 1, colIndex}};
+    }
+  }
+
+  private void generateRoomMaze() {
+    int numToDelete = savedWall.size() - remains;
+    Random random = new Random();
+    for (int i = 0; i < numToDelete; i++) {
+      int randomInt = random.nextInt(savedWall.size());
+      int[][] cellsPositions = getCellsPositionByWall(randomInt);
+      int cell1X = cellsPositions[0][0];
+      int cell1Y = cellsPositions[0][1];
+      int cell2X = cellsPositions[1][0];
+      int cell2Y = cellsPositions[1][1];
+      linkCells(cell1X, cell1Y, cell2X, cell2Y);
+    }
+  }
+
+  private void changeToWrappingMaze() {
+    for (int j = 0; j < cols; j++) {
+      linkCells(0, j, rows - 1, j);
+    }
+    for (int i = 0; i < rows; i++) {
+      linkCells(i, 0, i, cols - 1);
     }
   }
 }

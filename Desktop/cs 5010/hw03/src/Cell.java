@@ -4,6 +4,8 @@ import java.util.Map;
 public class Cell {
   //string is the direction
   Map<String, Cell> cellMap;
+  boolean hasGold;
+  boolean hasThief;
 
   public Cell() {
     cellMap = new HashMap<>();
@@ -11,6 +13,8 @@ public class Cell {
     cellMap.put("right", null);
     cellMap.put("up", null);
     cellMap.put("down", null);
+    hasGold = false;
+    hasThief = false;
   }
 
   public void setNextCell(Cell nextCell, String directionSide) {
@@ -28,5 +32,21 @@ public class Cell {
         cellMap.put("down", nextCell);
         break;
     }
+  }
+
+  public void setGold() {
+    hasGold = true;
+  }
+
+  public void setThief() {
+    hasThief = true;
+  }
+
+  public boolean hasGold() {
+    return hasGold;
+  }
+
+  public boolean hasThief() {
+    return hasThief;
   }
 }
