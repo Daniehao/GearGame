@@ -12,4 +12,5 @@ public interface MazeGame {
   public int getPlayerPosY();
 
   public int getPlayerGold();
+
 }

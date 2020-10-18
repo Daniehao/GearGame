@@ -249,4 +249,5 @@ public class Maze implements MazeGame {
   public int getPlayerGold() {
     return playerGold;
   }
+
 }

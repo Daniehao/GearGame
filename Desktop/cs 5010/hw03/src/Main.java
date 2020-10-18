@@ -64,7 +64,13 @@ public class Main {
       System.out.println(String.format("Player's current location: (%d, %d)",
               maze.getPlayerPosX(), maze.getPlayerPosY()));
       System.out.println(String.format("Player's current gold amount: %d", maze.getPlayerGold()));
+      System.out.println("If the player has reached to the destination: "
+              + checkReachToTarget(maze.getPlayerPosX(), maze.getPlayerPosY(), targetX, targetY));
     }
+  }
+
+  public static boolean checkReachToTarget(int playerX, int playerY, int targetX, int targetY) {
+    return targetX == playerX && targetY == playerY;
   }
 
 }
