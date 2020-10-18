@@ -22,6 +22,7 @@ public class Main {
 //    System.out.println("Enter the y of the target point: ");
 //    int targetY = Integer.valueOf(sc.nextLine());
 
+    //Sample 1
     int rows = 3;
     int cols = 4;
     int remains = 6;
@@ -66,6 +67,53 @@ public class Main {
       System.out.println(String.format("Player's current gold amount: %d", maze.getPlayerGold()));
       System.out.println("If the player has reached to the destination: "
               + checkReachToTarget(maze.getPlayerPosX(), maze.getPlayerPosY(), targetX, targetY));
+    }
+
+    //Sample 2
+    int rows2 = 3;
+    int cols2 = 4;
+    int remains2 = 3;
+    boolean isPerfect2 = true;
+    boolean isWrapping2 = false;
+    int startX2 = 0;
+    int startY2 = 2;
+    int targetX2 = 2;
+    int targetY2 = 1;
+
+    if (startX2 < 0 || startX2 >= rows2 || startY2 < 0 || startY2 >= cols2) {
+      throw new IllegalArgumentException("The start point is invalid!");
+    } else if (targetX2 < 0 || targetX2 >= rows2 || targetY2 < 0 || targetY2 >= cols2) {
+      throw new IllegalArgumentException("The target point is invalid!");
+    } else if (isWrapping2 && remains2 >= rows2 * cols2 - 1) {
+      throw new IllegalArgumentException("The remains has to be less than rows * cols - 1 for " +
+              "non-wrapping maze!");
+    } else {
+      Maze maze = new Maze(rows2, cols2, remains2, isPerfect2, isWrapping2, startX2, startY2);
+      System.out.println(String.format("Player's current location: (%d, %d)",
+              maze.getPlayerPosX(), maze.getPlayerPosY()));
+      System.out.println(String.format("Player's current gold amount: %d", maze.getPlayerGold()));
+      maze.goDown();
+      System.out.println(String.format("Player's current location: (%d, %d)",
+              maze.getPlayerPosX(), maze.getPlayerPosY()));
+      System.out.println(String.format("Player's current gold amount: %d", maze.getPlayerGold()));
+      maze.goRight();
+      System.out.println(String.format("Player's current location: (%d, %d)",
+              maze.getPlayerPosX(), maze.getPlayerPosY()));
+      System.out.println(String.format("Player's current gold amount: %d", maze.getPlayerGold()));
+      maze.goDown();
+      System.out.println(String.format("Player's current location: (%d, %d)",
+              maze.getPlayerPosX(), maze.getPlayerPosY()));
+      System.out.println(String.format("Player's current gold amount: %d", maze.getPlayerGold()));
+      maze.goLeft();
+      System.out.println(String.format("Player's current location: (%d, %d)",
+              maze.getPlayerPosX(), maze.getPlayerPosY()));
+      System.out.println(String.format("Player's current gold amount: %d", maze.getPlayerGold()));
+      maze.goLeft();
+      System.out.println(String.format("Player's current location: (%d, %d)",
+              maze.getPlayerPosX(), maze.getPlayerPosY()));
+      System.out.println(String.format("Player's current gold amount: %d", maze.getPlayerGold()));
+      System.out.println("If the player has reached to the destination: "
+              + checkReachToTarget(maze.getPlayerPosX(), maze.getPlayerPosY(), targetX2, targetY2));
     }
   }
 
