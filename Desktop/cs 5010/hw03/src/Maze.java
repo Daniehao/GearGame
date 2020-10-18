@@ -31,7 +31,7 @@ public class Maze implements MazeGame {
     if (cols < 0) {
       throw new IllegalArgumentException("columns input cannot be negative!");
     }
-    generatePerfectMaze();
+    generatePerfectMaze(isWrapping);
     if (!isPerfect) {
       if (remains < rows * cols - 1 && remains >= 0) {
         generateRoomMaze();
@@ -40,18 +40,43 @@ public class Maze implements MazeGame {
                 "to rows*columns - 1");
       }
     }
-
-    if (isWrapping) {
-      changeToWrappingMaze();
-    }
   }
 
-  private void generatePerfectMaze() {
+  private void generatePerfectMaze(boolean isWrapping) {
     int[][] cellToUnion = new int[rows][cols];
     List<Integer> walls = new ArrayList<>();
     Map<Integer, List<Integer>> unionToCells = new HashMap<>();
     generateCells(rows, cols);
-    int totalWalls = (cols - 1) * rows + (rows - 1) * cols;
+    int totalWalls = 0;
+    if (isWrapping) {
+      totalWalls = (cols + 1) * rows + (rows + 1) * cols;
+    } else {
+      totalWalls = (cols - 1) * rows + (rows - 1) * cols;
+    }
+
+    setUnionCellRelationship(cellToUnion, unionToCells);
+
+    for (int i = 0; i < totalWalls; i++) {
+      walls.add(i);
+    }
+    int removedCount = kruskalOnWalls(cellToUnion, walls, unionToCells, totalWalls);
+    if (removedCount == rows * cols - 1) {
+      savedWall.addAll(walls);
+    } else {
+      for (int wall : walls) {
+        int[][] cellsPositions = getCellsPositionByWall(wall);
+        int cell1X = cellsPositions[0][0];
+        int cell1Y = cellsPositions[0][1];
+        int cell2X = cellsPositions[1][0];
+        int cell2Y = cellsPositions[1][1];
+        linkCells(cell1X, cell1Y, cell2X, cell2Y);
+        setUnionNum(unionToCells, cellToUnion, cellToUnion[cell1X][cell1Y],
+                cellToUnion[cell2X][cell2Y]);
+      }
+    }
+  }
+
+  private void setUnionCellRelationship(int[][] cellToUnion, Map<Integer, List<Integer>> unionToCells) {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
         cellToUnion[i][j] = i * cols + j;
@@ -60,9 +85,9 @@ public class Maze implements MazeGame {
         unionToCells.put(i * cols + j, temp);
       }
     }
-    for (int i = 0; i < totalWalls; i++) {
-      walls.add(i);
-    }
+  }
+
+  private int kruskalOnWalls(int[][] cellToUnion, List<Integer> walls, Map<Integer, List<Integer>> unionToCells, int totalWalls) {
     Random random = new Random();
     int removedCount = 0;
     while (removedCount < rows * cols - 1 && savedWall.size() < totalWalls - rows * cols + 1) {
@@ -83,20 +108,7 @@ public class Maze implements MazeGame {
       walls.remove(randomInt);
       System.out.println(removedCount + ", " + savedWall.size());
     }
-    if (removedCount == rows * cols - 1) {
-      savedWall.addAll(walls);
-    } else {
-      for (int wall : walls) {
-        int[][] cellsPositions = getCellsPositionByWall(wall);
-        int cell1X = cellsPositions[0][0];
-        int cell1Y = cellsPositions[0][1];
-        int cell2X = cellsPositions[1][0];
-        int cell2Y = cellsPositions[1][1];
-        linkCells(cell1X, cell1Y, cell2X, cell2Y);
-        setUnionNum(unionToCells, cellToUnion, cellToUnion[cell1X][cell1Y],
-                cellToUnion[cell2X][cell2Y]);
-      }
-    }
+    return removedCount;
   }
 
   private void setUnionNum(Map<Integer, List<Integer>> unionToCells, int[][] cellToUnion,
